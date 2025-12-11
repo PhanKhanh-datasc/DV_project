@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>global life expectancy</title>
+</head>
+<body>
+    <div id="main-content">
+        <h1>global life expectancy over time</h1>
+        <div id="map-container-wrapper">
+            <div id="map-container"></div>
+        </div>
+
+        <div id="controls">
+            <label for="time-slider" id="year-label">Year: 2022</label>
+            <input type="range" id="time-slider" step="1" value="2022">
+        </div>
+        
+        <div id="chart-popup">
+            <button id="close-popup">X</button>
+            <h4>Country Name Life Expectancy Trend</h4>
+            <div id="chart-area">
+                <svg id="chart-svg"></svg>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
