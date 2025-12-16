@@ -1,0 +1,209 @@
+/* Basic styling */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+}
+
+#main-content {
+    width: 1200px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+/* Map Styling */
+#map-container-wrapper {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #131010;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.country {
+    cursor: pointer;
+    transition: fill 0.3s ease; /* Smooth color transitions for the choropleth */
+}
+
+.country.hover-active {
+    stroke: #000;
+    stroke-width: 1.5px;
+    opacity: 0.8;
+}
+
+/* Controls (Slider) Styling */
+#controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#time-slider {
+    width: 80%;
+    margin-top: 10px;
+}
+
+#year-label {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Pop-up Chart Styling (The Attraction Technique) */
+#chart-popup {
+    position: fixed;
+    /* Centering logic */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: #ffffff;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensure it floats above the map */
+    width: 500px;
+    height: 350px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#chart-popup.active {
+    opacity: 1;
+    visibility: visible;
+    /* Optional: Add a slight scale-up effect for 'attraction' */
+    /* transform: translate(-50%, -50%) scale(1.05); */
+}
+
+#chart-popup h4 {
+    margin-top: 0;
+    text-align: center;
+    color: #007BFF;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#close-popup:hover {
+    background: #c82333;
+}
+
+#chart-svg {
+    display: block;
+    margin: auto;
+}
+
+#legend-container {
+    margin-top: 15px;
+    width: 360px;
+}
+
+#legend-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+#legend-svg {
+    width: 360px;
+    height: 50px;
+}
+
+#animation-controls {
+    margin-top: 15px;
+    border: #000 1px solid;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+#animation-controls label {
+    font-size: 14px;
+}
+
+#animation-controls input {
+    width: 70px;
+    margin-left: 5px;
+}
+
+#animate-btn {
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+#chart-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* This controls visibility */
+#chart-modal.hidden {
+    display: none;
+}
+
+#chart-modal:not(.hidden) {
+    display: flex;
+}
+
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 760px;
+    border-radius: 8px;
+}
+
+#close-modal {
+    float: right;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#compare-section {
+    margin-top: 10px;
+}
+
+#selected-countries span {
+    display: inline-block;
+    background: #eee;
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: 4px;
+}
+

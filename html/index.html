@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>global life expectancy</title>
+    <link rel="stylesheet" href="style.css"> <title>global life expectancy</title>
 </head>
 <body>
     <div id="main-content">
@@ -14,20 +13,67 @@
         <div id="map-container-wrapper">
             <div id="map-container"></div>
         </div>
+        <div id="legend-container">
+            <div id="legend-title">Life Expectancy (years)</div>
+            <svg id="legend-svg"></svg>
+        </div>
+        <div id="animation-controls">
+            <label>
+                From:
+                <input type="number" id="from-year" value="1960" min="1960" max="2023">
+            </label>
+
+            <label>
+                To:
+                <input type="number" id="to-year" value="2022" min="1960" max="2023">
+            </label>
+
+            <button id="animate-btn">Animate</button>
+        </div>
+
+
 
         <div id="controls">
             <label for="time-slider" id="year-label">Year: 2022</label>
             <input type="range" id="time-slider" step="1" value="2022">
         </div>
         
-        <div id="chart-popup">
-            <button id="close-popup">X</button>
-            <h4>Country Name Life Expectancy Trend</h4>
-            <div id="chart-area">
-                <svg id="chart-svg"></svg>
+        
+    </div>
+
+    <div id="chart-modal" class="hidden">
+        <div class="modal-content">
+            <span id="close-modal">✖</span>
+
+            <h3 id="modal-title">Country Analysis</h3>
+
+            <!-- Chart type -->
+            <label>
+                Chart type:
+                <select id="chart-type">
+                    <option value="line">Line chart</option>
+                    <option value="bar">Bar chart</option>
+                    <option value="box">Box plot</option>
+                </select>
+            </label>
+
+            <!-- Compare countries (hidden for line chart) -->
+            <div id="compare-section">
+                <label>
+                    Add country:
+                    <select id="compare-country"></select>
+                </label>
+                <button id="add-country">Add</button>
+
+                <div id="selected-countries"></div>
             </div>
+
+            <button id="finalize-chart">Finalize</button>
+
+            <svg id="chart-svg" width="700" height="350"></svg>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
